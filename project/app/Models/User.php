@@ -22,7 +22,21 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'phone',
+        'city',
+        'blood_group',
     ];
+
+    public function donor()
+    {
+        return $this->hasOne(Donor::class);
+    }
+
+    public function bloodRequests()
+    {
+        return $this->hasMany(BloodRequest::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
