@@ -39,24 +39,40 @@
                         <thead class="table-light">
                             <tr>
                                 <th>Patient Name</th>
-                                <th>City</th>
-                                <th>Hospital</th>
+                                <th>Location & Hospital</th>
                                 <th>Urgency</th>
-                                <th>Date</th>
+                                <th>Contact Requester</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($bloodRequests as $req)
-                            <tr>
-                                <td>{{ $req->patient_name }}</td>
-                                <td>{{ $req->city }}</td>
-                                <td>{{ $req->hospital }}</td>
+                            <tr class="align-middle">
+                                <td>
+                                    <strong>{{ $req->patient_name }}</strong><br>
+                                    <small class="text-muted">Req. by: {{ $req->user->name ?? 'Unknown' }}</small>
+                                </td>
+                                <td>
+                                    <span class="text-dark">📍 {{ $req->city }}</span><br>
+                                    <span class="text-muted small">🏥 {{ $req->hospital }}</span>
+                                </td>
                                 <td>
                                     <span class="badge {{ $req->urgency == 'emergency' ? 'bg-danger' : ($req->urgency == 'urgent' ? 'bg-warning' : 'bg-primary') }}">
                                         {{ ucfirst($req->urgency) }}
-                                    </span>
+                                    </span><br>
+                                    <small class="text-muted">{{ $req->created_at->diffForHumans() }}</small>
                                 </td>
-                                <td>{{ $req->created_at->diffForHumans() }}</td>
+                                <td>
+                                    @if($req->user && $req->user->phone)
+                                        <a href="tel:{{ $req->user->phone }}" class="btn btn-sm btn-outline-dark rounded-pill mb-1 shadow-soft" title="Call Requester">
+                                            📞 {{ $req->user->phone }}
+                                        </a>
+                                        <a href="https://wa.me/91{{ preg_replace('/[^0-9]/', '', $req->user->phone) }}" target="_blank" class="btn btn-sm btn-success rounded-pill shadow-soft text-white" style="background-color: #25D366; border-color: #25D366;" title="Message on WhatsApp">
+                                            💬 WhatsApp
+                                        </a>
+                                    @else
+                                        <span class="badge bg-secondary">No Phone Provided</span>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
