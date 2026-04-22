@@ -68,7 +68,7 @@
                                 <th>Blood Group</th>
                                 <th>Hospital</th>
                                 <th>Urgency</th>
-                                <th>Status</th>
+                                <th>Status & Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,7 +78,21 @@
                                 <td><strong>{{ $req->blood_group }}</strong></td>
                                 <td>{{ $req->hospital }}</td>
                                 <td><span class="badge {{ $req->urgency == 'emergency' ? 'bg-danger' : 'bg-primary' }}">{{ ucfirst($req->urgency) }}</span></td>
-                                <td><span class="badge {{ $req->status == 'pending' ? 'bg-warning' : 'bg-success' }}">{{ ucfirst($req->status) }}</span></td>
+                                <td>
+                                    @if($req->status == 'pending')
+                                        <div class="d-flex flex-column align-items-start gap-1">
+                                            <span class="badge bg-warning text-dark shadow-sm px-2 py-1">Pending</span>
+                                            <form action="{{ route('recipient.request.complete', $req->id) }}" method="POST" class="m-0 p-0" onsubmit="return confirm('Are you sure you have received the blood and want to mark this request as completed? It will no longer be visible to donors.');">
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-success rounded-pill shadow-soft mt-1 w-100" style="font-size: 0.8rem; padding: 0.2rem 0.5rem;" title="Mark as Completed">
+                                                    ✓ Mark Complete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    @else
+                                        <span class="badge bg-success shadow-sm px-3 py-2 fs-6">Completed ✨</span>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/recipient/dashboard', [\App\Http\Controllers\RecipientController::class, 'dashboard'])->name('recipient.dashboard');
     Route::post('/recipient/request', [\App\Http\Controllers\RecipientController::class, 'createRequest'])->name('recipient.request');
     Route::get('/recipient/search', [\App\Http\Controllers\RecipientController::class, 'searchDonors'])->name('recipient.search');
+    Route::post('/recipient/request/{bloodRequest}/complete', [\App\Http\Controllers\RecipientController::class, 'markAsComplete'])->name('recipient.request.complete');
 
     // Admin routes
     Route::get('/admin/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');

@@ -48,4 +48,16 @@ class RecipientController extends Controller
 
         return view('recipient.search', compact('donors'));
     }
+
+    public function markAsComplete(BloodRequest $bloodRequest)
+    {
+        // Ensure the logged-in user owns this request
+        if ($bloodRequest->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $bloodRequest->update(['status' => 'fulfilled']);
+
+        return back()->with('success', 'Blood request marked as successfully completed. It has been removed from emergency listings.');
+    }
 }

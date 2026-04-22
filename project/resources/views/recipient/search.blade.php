@@ -48,11 +48,24 @@
                 </thead>
                 <tbody>
                     @foreach($donors as $donorUser)
-                    <tr>
-                        <td>{{ $donorUser->name }}</td>
-                        <td><span class="badge bg-danger">{{ $donorUser->blood_group }}</span></td>
-                        <td>{{ $donorUser->city }}</td>
-                        <td>{{ $donorUser->phone }}</td>
+                    <tr class="align-middle">
+                        <td><strong>{{ $donorUser->name }}</strong></td>
+                        <td><span class="badge bg-danger p-2 fs-6">{{ $donorUser->blood_group }}</span></td>
+                        <td>📍 {{ $donorUser->city }}</td>
+                        <td>
+                            @if($donorUser->phone)
+                                <div class="d-flex gap-2">
+                                    <a href="tel:{{ $donorUser->phone }}" class="btn btn-sm btn-outline-dark rounded-pill shadow-soft" title="Call Donor">
+                                        📞 {{ $donorUser->phone }}
+                                    </a>
+                                    <a href="https://wa.me/91{{ preg_replace('/[^0-9]/', '', $donorUser->phone) }}" target="_blank" class="btn btn-sm btn-success rounded-pill shadow-soft text-white" style="background-color: #25D366; border-color: #25D366;" title="Message on WhatsApp">
+                                        💬 WhatsApp
+                                    </a>
+                                </div>
+                            @else
+                                <span class="badge bg-secondary">No Phone Provided</span>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
