@@ -53,6 +53,78 @@
     </div>
 </div>
 
+<!-- Motivational Carousel Section -->
+<div class="row mb-5 mt-5">
+    <div class="col-12">
+        <div class="bg-white p-4 rounded-4 shadow-soft border transition-effect">
+            <div id="motivationalCarousel" class="carousel slide carousel-fade rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel" style="max-height: 450px;">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#motivationalCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#motivationalCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#motivationalCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item active h-100" data-bs-interval="4000">
+                        <img src="{{ asset('images/motivation_1.png') }}" class="d-block w-100" style="object-fit: cover; object-position: center; height: 450px;" alt="Hope and giving life">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-4 p-4 mb-4 border border-light border-opacity-25 shadow-lg backdrop-blur">
+                            <h3 class="fw-bold text-white mb-2">Give the Gift of Life</h3>
+                            <p class="fs-5 mb-0 text-light">Your single donation can save up to three lives. Be the hope someone is praying for today.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100" data-bs-interval="4000">
+                        <img src="{{ asset('images/motivation_2.png') }}" class="d-block w-100" style="object-fit: cover; object-position: center top; height: 450px;" alt="Be a Hero, Donate Blood">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-4 p-4 mb-4 border border-light border-opacity-25 shadow-lg backdrop-blur">
+                            <h3 class="fw-bold text-white mb-2">Be a Hero Without a Cape</h3>
+                            <p class="fs-5 mb-0 text-light">True heroes bleed for others. Join our community of life-savers and make a real impact.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100" data-bs-interval="4000">
+                        <img src="{{ asset('images/motivation_3.png') }}" class="d-block w-100" style="object-fit: cover; object-position: center; height: 450px;" alt="Blood forming lifeline">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-4 p-4 mb-4 border border-light border-opacity-25 shadow-lg backdrop-blur">
+                            <h3 class="fw-bold text-white mb-2">Every Drop Counts</h3>
+                            <p class="fs-5 mb-0 text-light">Blood cannot be manufactured. It can only come from generous donors. Your contribution is vital.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#motivationalCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon shadow" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#motivationalCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon shadow" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+            <div class="text-center mt-4 px-3">
+                <h4 class="text-dark fw-bold mb-4">Why Donate Blood? 🩸</h4>
+                <div class="row text-secondary fs-6 justify-content-center g-3">
+                    <div class="col-md-3">
+                        <div class="py-2 px-3 bg-light rounded-pill border shadow-sm">
+                            <span class="fs-5 me-1">❤️</span> Free Health Checkup
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="py-2 px-3 bg-light rounded-pill border shadow-sm">
+                            <span class="fs-5 me-1">🏃</span> Burns Calories
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="py-2 px-3 bg-light rounded-pill border shadow-sm">
+                            <span class="fs-5 me-1">💓</span> Reduces Heart Risk
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="py-2 px-3 bg-light rounded-pill border shadow-sm">
+                            <span class="fs-5 me-1">✨</span> Sense of Purpose
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Stats Section -->
 <div class="row text-center mb-5 mt-5">
     <div class="col-md-4 mb-3">

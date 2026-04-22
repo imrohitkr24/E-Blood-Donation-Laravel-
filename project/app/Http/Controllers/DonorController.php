@@ -12,7 +12,8 @@ class DonorController extends Controller
     {
         $user = Auth::user();
         $donor = $user->donor;
-        $bloodRequests = BloodRequest::where('blood_group', $user->blood_group)
+        $bloodRequests = BloodRequest::with('user')
+                            ->where('blood_group', $user->blood_group)
                             ->where('status', 'pending')
                             ->latest()
                             ->get();
