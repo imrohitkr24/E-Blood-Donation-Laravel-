@@ -34,10 +34,25 @@
     </div>
 </div>
 
-<div class="card shadow-sm border-0">
+<!-- Map Section -->
+<div class="card shadow-sm border-0 mb-4 overflow-hidden rounded-4">
+    <iframe 
+        width="100%" 
+        height="300" 
+        frameborder="0" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q={{ urlencode(request('city', 'India')) }}+Blood+Bank&output=embed">
+    </iframe>
+</div>
+
+<div class="card shadow-sm border-0 rounded-4">
     <div class="card-body p-0">
          @if($donors->count() > 0)
-            <table class="table table-hover mb-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
                 <thead class="table-light">
                     <tr>
                         <th>Name</th>
@@ -70,6 +85,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
             <div class="p-3 border-top">
                 {{ $donors->links('pagination::bootstrap-5') }}
             </div>

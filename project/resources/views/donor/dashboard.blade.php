@@ -35,7 +35,8 @@
             <div class="card-header bg-white"><strong>Incoming Emergency Requests ({{ $user->blood_group }})</strong></div>
             <div class="card-body p-0">
                 @if($bloodRequests->count() > 0)
-                    <table class="table table-hover mb-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
                         <thead class="table-light">
                             <tr>
                                 <th>Patient Name</th>
@@ -77,6 +78,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    </div>
                 @else
                     <div class="p-4 text-center text-muted">No pending requests for your blood group.</div>
                 @endif

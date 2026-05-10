@@ -40,7 +40,8 @@
         <div class="card shadow-sm border-0">
             <div class="card-header bg-white"><strong>Recent Users</strong></div>
             <div class="card-body p-0">
-                <table class="table mb-0 table-hover">
+                <div class="table-responsive">
+                    <table class="table mb-0 table-hover">
                     <thead class="table-light">
                         <tr>
                             <th>Name</th>
@@ -62,6 +63,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>

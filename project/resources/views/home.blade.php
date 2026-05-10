@@ -191,6 +191,49 @@
     </div>
 </div>
 
+<!-- Awareness & Education Section -->
+<div class="row mb-5 bg-white py-5 rounded-4 shadow-sm border mt-5">
+    <div class="col-12 text-center mb-4">
+        <h3 class="fw-bold text-dark">Awareness & Education</h3>
+        <div class="bg-maroon mx-auto" style="height: 4px; width: 60px; border-radius: 2px;"></div>
+        <p class="text-muted mt-3">Learn more about the impact of your donation and why it matters.</p>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-soft rounded-4 overflow-hidden transition-effect bg-light">
+            <div class="row g-0 h-100">
+                <div class="col-4 bg-maroon text-white d-flex flex-column justify-content-center align-items-center p-3 text-center">
+                    <span class="fs-1">🩸</span>
+                    <h5 class="fw-bold mt-2 mb-0">1 Pint</h5>
+                </div>
+                <div class="col-8">
+                    <div class="card-body d-flex flex-column justify-content-center h-100 p-4">
+                        <h5 class="card-title fw-bold text-dark">Saves Up to 3 Lives</h5>
+                        <p class="card-text text-muted mb-0">A single donation can be separated into red blood cells, plasma, and platelets, helping multiple patients in need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 border-0 shadow-soft rounded-4 overflow-hidden transition-effect bg-light">
+            <div class="row g-0 h-100">
+                <div class="col-4 bg-dark text-white d-flex flex-column justify-content-center align-items-center p-3 text-center">
+                    <span class="fs-1">⏳</span>
+                    <h5 class="fw-bold mt-2 mb-0">10 Mins</h5>
+                </div>
+                <div class="col-8">
+                    <div class="card-body d-flex flex-column justify-content-center h-100 p-4">
+                        <h5 class="card-title fw-bold text-dark">Quick & Safe Process</h5>
+                        <p class="card-text text-muted mb-0">The actual donation takes only about 8-10 minutes. The entire process, from registration to refreshments, is under an hour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <style>
     .transition-effect { transition: transform 0.3s ease; }
     .transition-effect:hover { transform: translateY(-5px); }
