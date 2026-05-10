@@ -8,17 +8,52 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(167, 29, 42, 0.95);
+            --border-color: #e9ecef;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f8f9fa;
+            --card-bg: #1e1e1e;
+            --nav-bg: rgba(20, 20, 20, 0.95);
+            --border-color: #2d2d2d;
+            --glass-bg: rgba(30, 30, 30, 0.9);
+        }
+
         body { 
-            background-color: #f8f9fa;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Roboto', sans-serif; 
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        /* E-RaktKosh maroon palette */
-        .bg-maroon { background-color: #a71d2a !important; }
+
+        .card, .bg-white, .bg-light, .modal-content {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+            border-color: var(--border-color) !important;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .text-dark { color: var(--text-color) !important; }
+        .text-muted { color: #6c757d !important; }
+        [data-theme="dark"] .text-muted { color: #adb5bd !important; }
+
+        /* E-RaktKosh maroon palette & Glassmorphism */
+        .bg-maroon { background-color: var(--nav-bg) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         .text-maroon { color: #a71d2a !important; }
+        [data-theme="dark"] .text-maroon { color: #ff4d4d !important; }
         .btn-maroon { background-color: #a71d2a; color: white; border: none; }
         .btn-maroon:hover { background-color: #881520; color: white; }
         
@@ -43,6 +78,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item me-3">
+                        <button id="theme-toggle" class="btn btn-link text-white text-decoration-none fs-5 p-0" title="Toggle Dark Mode">
+                            🌙
+                        </button>
+                    </li>
                     @guest
                         <li class="nav-item"><a class="nav-link px-3" href="{{ route('login') }}">Login</a></li>
                         <li class="nav-item"><a class="btn btn-outline-light ms-2 rounded-pill px-4" href="{{ route('register') }}">Join as Donor</a></li>
@@ -59,6 +99,18 @@
             </div>
         </div>
     </nav>
+
+    <!-- Live Activity Ticker -->
+    <div class="bg-dark text-white py-1 overflow-hidden shadow-sm" style="font-size: 0.85rem;">
+        <div class="container">
+            <marquee behavior="scroll" direction="left" scrollamount="6" class="mb-0 d-flex align-items-center">
+                <span class="me-5">🔴 <strong>Urgent:</strong> A+ blood needed at City Hospital, Mumbai. Please check your dashboard!</span>
+                <span class="me-5">🎉 <strong>Thank you</strong> Rahul from Delhi for your recent donation!</span>
+                <span class="me-5">🩸 Every drop counts. Register today to become a lifesaver.</span>
+                <span class="me-5">🌟 15 new donors joined from Bangalore today!</span>
+            </marquee>
+        </div>
+    </div>
 
     <div class="container mt-4 mb-5 flex-grow-1">
         @if(session('success'))
@@ -99,12 +151,15 @@
                 <span class="d-inline-block bg-white text-dark p-2 rounded-3 shadow-sm">Hello! I am BloodBot. How can I help you today?</span>
             </div>
             <div class="mb-2 text-start">
-                <span class="d-inline-block bg-white text-dark p-2 rounded-3 shadow-sm border" style="font-size:0.85rem;">
-                    <strong>Try asking:</strong><br>
-                    - What are the advantages of donating?<br>
-                    - Who can donate blood?<br>
-                    - How often can I donate?
-                </span>
+                <div class="d-inline-block bg-white text-dark p-2 rounded-3 shadow-sm border w-100" style="font-size:0.85rem;">
+                    <strong>Choose a question below:</strong>
+                    <div class="d-flex flex-column gap-2 mt-2">
+                        <button class="btn btn-sm btn-outline-danger text-start chat-quick-reply" data-question="What are the advantages of donating?">1. Advantages of donating?</button>
+                        <button class="btn btn-sm btn-outline-danger text-start chat-quick-reply" data-question="Who can donate blood?">2. Who can donate blood?</button>
+                        <button class="btn btn-sm btn-outline-danger text-start chat-quick-reply" data-question="How often can I donate?">3. How often can I donate?</button>
+                        <button class="btn btn-sm btn-outline-danger text-start chat-quick-reply" data-question="Is it safe to donate?">4. Is it safe to donate?</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="p-2 bg-white border-top">
@@ -122,9 +177,42 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Chatbot Script -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Scripts (Chatbot, AOS, Theme) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+
+            // Dark Mode Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            if (currentTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.body.getAttribute('data-theme') === 'dark';
+                if (isDark) {
+                    document.body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    themeToggle.textContent = '🌙';
+                } else {
+                    document.body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    themeToggle.textContent = '☀️';
+                }
+            });
+
+            // Chatbot Logic
             const chatToggle = document.getElementById('chatbot-toggle');
             const chatWidget = document.getElementById('chatbot-widget');
             const closeChat = document.getElementById('close-chat');
@@ -163,20 +251,34 @@
                 } else if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
                     return "Hi there! Feel free to ask me anything about blood donation.";
                 } else {
-                    return "I'm a simple bot. You can ask me about advantages of donation, eligibility, frequency, or safety.";
+                    return "I'm a simple bot. Please select one of the provided questions or ask something related.";
+                }
+            }
+
+            function handleSendText(text) {
+                if (text) {
+                    appendMessage(text, 'user');
+                    setTimeout(() => {
+                        appendMessage(getBotResponse(text), 'bot');
+                    }, 500);
                 }
             }
 
             function handleSend() {
                 const text = chatInput.value.trim();
                 if (text) {
-                    appendMessage(text, 'user');
                     chatInput.value = '';
-                    setTimeout(() => {
-                        appendMessage(getBotResponse(text), 'bot');
-                    }, 500);
+                    handleSendText(text);
                 }
             }
+
+            // Quick reply buttons
+            document.querySelectorAll('.chat-quick-reply').forEach(button => {
+                button.addEventListener('click', function() {
+                    const text = this.getAttribute('data-question');
+                    handleSendText(text);
+                });
+            });
 
             sendChat.addEventListener('click', handleSend);
             chatInput.addEventListener('keypress', (e) => {

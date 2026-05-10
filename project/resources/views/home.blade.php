@@ -3,7 +3,7 @@
 
 <!-- Hero Section -->
 <div class="row align-items-center mb-5 mt-3">
-    <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+    <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0" data-aos="fade-right">
         <span class="badge bg-danger mb-2 px-3 py-2 border border-danger shadow-sm">India's Lifeline</span>
         <h1 class="display-4 fw-bold text-dark mb-3">Donate Blood,<br>Save Lives <span class="text-maroon">Instantly</span>.</h1>
         <p class="lead text-secondary mb-4">A centralized platform linking voluntary blood donors with those in critical need of blood across the nation. Join our noble initiative today.</p>
@@ -14,7 +14,7 @@
         </div>
     </div>
     
-    <div class="col-lg-5" id="quick-search">
+    <div class="col-lg-5" id="quick-search" data-aos="fade-left">
         <!-- Quick Search Form -->
         <div class="card shadow-soft border-0 rounded-4">
             <div class="card-header bg-maroon text-white text-center py-3 rounded-top-4">
@@ -54,7 +54,7 @@
 </div>
 
 <!-- Motivational Carousel Section -->
-<div class="row mb-5 mt-5">
+<div class="row mb-5 mt-5" data-aos="fade-up">
     <div class="col-12">
         <div class="bg-white p-4 rounded-4 shadow-soft border transition-effect">
             <div id="motivationalCarousel" class="carousel slide carousel-fade rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel" style="max-height: 450px;">
@@ -127,19 +127,19 @@
 
 <!-- Stats Section -->
 <div class="row text-center mb-5 mt-5">
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="0">
         <div class="p-4 bg-white rounded-4 shadow-soft border h-100 transition-effect">
             <h2 class="display-5 fw-bold text-maroon mb-0">15,000+</h2>
             <p class="text-muted fw-bold mb-0">Registered Donors</p>
         </div>
     </div>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="100">
         <div class="p-4 bg-white rounded-4 shadow-soft border h-100 transition-effect">
             <h2 class="display-5 fw-bold text-maroon mb-0">8,500+</h2>
             <p class="text-muted fw-bold mb-0">Active Blood Banks</p>
         </div>
     </div>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="200">
         <div class="p-4 bg-maroon rounded-4 shadow-soft text-white h-100 transition-effect">
             <h2 class="display-5 fw-bold mb-0">2.5 Lakh+</h2>
             <p class="fw-bold mb-0 opacity-75">Lives Saved</p>
@@ -149,12 +149,12 @@
 
 <!-- Features Section -->
 <div class="row mb-5">
-    <div class="col-12 text-center mb-4">
+    <div class="col-12 text-center mb-4" data-aos="fade-up">
         <h3 class="fw-bold text-dark">Our Core Features</h3>
         <div class="bg-maroon mx-auto" style="height: 4px; width: 60px; border-radius: 2px;"></div>
     </div>
     
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card h-100 border-0 shadow-soft text-center p-3 rounded-4">
             <div class="card-body">
                 <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:70px; height:70px;">
@@ -166,7 +166,7 @@
         </div>
     </div>
     
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card h-100 border-0 shadow-soft text-center p-3 rounded-4 bg-maroon text-white">
             <div class="card-body">
                 <div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:70px; height:70px;">
@@ -178,7 +178,7 @@
         </div>
     </div>
 
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card h-100 border-0 shadow-soft text-center p-3 rounded-4">
             <div class="card-body">
                 <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:70px; height:70px;">
@@ -192,14 +192,14 @@
 </div>
 
 <!-- Awareness & Education Section -->
-<div class="row mb-5 bg-white py-5 rounded-4 shadow-sm border mt-5">
+<div class="row mb-5 bg-white py-5 rounded-4 shadow-sm border mt-5" data-aos="fade-up">
     <div class="col-12 text-center mb-4">
         <h3 class="fw-bold text-dark">Awareness & Education</h3>
         <div class="bg-maroon mx-auto" style="height: 4px; width: 60px; border-radius: 2px;"></div>
         <p class="text-muted mt-3">Learn more about the impact of your donation and why it matters.</p>
     </div>
     
-    <div class="col-md-6 mb-4">
+    <div class="col-md-6 mb-4" data-aos="fade-right" data-aos-delay="100">
         <div class="card h-100 border-0 shadow-soft rounded-4 overflow-hidden transition-effect bg-light">
             <div class="row g-0 h-100">
                 <div class="col-4 bg-maroon text-white d-flex flex-column justify-content-center align-items-center p-3 text-center">
@@ -216,7 +216,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 mb-4">
+    <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-delay="200">
         <div class="card h-100 border-0 shadow-soft rounded-4 overflow-hidden transition-effect bg-light">
             <div class="row g-0 h-100">
                 <div class="col-4 bg-dark text-white d-flex flex-column justify-content-center align-items-center p-3 text-center">
